@@ -1,0 +1,20 @@
+One more repo was created that will act as podcast generator that will create podcast(s) calling same action feed.py
+githubactions-podcast-generator
+with ReadMe.md and License = MIT License
+copy the same feed.py from "githubactions-podcast-test" into this new repo
+
+Note: however i faced few issues in invoking githubactions-podcast-generator - python version conflict in Dockerfile
+
+for that replace the contents of main.yml with below:
+
+name: Generate Podcast Feeds
+'on': push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Run Feed Generator
+        uses: MahanteshTalikoti-git/githubactions-podcast-generator@master
+        
